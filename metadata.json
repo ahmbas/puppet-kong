@@ -1,0 +1,47 @@
+{
+  "name": "z0mbix-kong",
+  "version": "0.0.1",
+  "author": "z0mbix",
+  "project_page": "https://github.com/z0mbix/puppet-kong",
+  "source": "git://github.com/z0mbix/puppet-kong.git",
+  "license": "MIT",
+  "description": "Module for Kong configuration",
+  "summary": "Installs, configures, and manages Kong.",
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 2.4.0 < 5.0.0"}
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04",
+        "15.04"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7",
+        "8"
+      ]
+    }
+  ]
+}
