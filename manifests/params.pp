@@ -1,6 +1,6 @@
 # kong parameters
 class kong::params {
-  $version                   = undef
+  $version                   = installed
   $config_dir                = '/etc/kong'
   $config_file               = 'kong.yml'
   $kong_path                 = '/usr/local/bin/kong'
@@ -50,15 +50,9 @@ class kong::params {
       $package_provider = 'rpm'
       $dependencies = [ 'epel-release' ]
       case $::operatingsystemmajrelease {
-        '5': {
-          $download_file = 'el5.noarch.rpm'
-        }
-        '6': {
-          $download_file = 'el6.noarch.rpm'
-        }
-        '7': {
-          $download_file = 'el7.noarch.rpm'
-        }
+        '5': { $download_file = 'el5.noarch.rpm' }
+        '6': { $download_file = 'el6.noarch.rpm' }
+        '7': { $download_file = 'el7.noarch.rpm' }
         default: {
           fail("Class['kong::params']: Unsupported operatingsystemmajrelease ${::operatingsystemmajrelease}")
         }
