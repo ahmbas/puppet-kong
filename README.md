@@ -10,7 +10,7 @@ for the target platform s downloaded with wget and installed with rpm or dpkg.
 For this reason, this module cannot manage package update easily as the dpkg
 provider does not support the *'versionable'* feature.
 
-**IMPORTANT:** This is a work in progress and has only been tested on CentOS 6 and Ubuntu Trusty (14.04). I will be testing with CentOS 5 and 7, other Ubuntu LTS releases and Debian at some point.
+**IMPORTANT:** This is a work in progress and has only been tested on CentOS 6 and Ubuntu Trusty (14.04), but should work on Debian. I will be testing with CentOS 5 and 7, other Ubuntu LTS releases and Debian at some point.
 
 ## TODO
 

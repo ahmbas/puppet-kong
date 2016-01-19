@@ -28,6 +28,7 @@ class kong (
   validate_integer($proxy_ssl_port)
   validate_integer($admin_api_port)
   validate_integer($cassandra_port)
+  validate_absolute_path($config_dir)
   validate_absolute_path($kong_path)
   validate_absolute_path($kong_pid)
   validate_absolute_path($log_dir)
