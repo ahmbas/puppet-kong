@@ -20,6 +20,10 @@ class kong (
   $service_ensure            = $kong::params::service_ensure,
   $service_manage            = $kong::params::service_manage,
   $service_restart           = $kong::params::service_restart,
+  $plugins_enabled           = $kong::params::plugins_enabled,
+  $package_provider          = $kong::params::package_provider,
+  $dependencies              = $kong::params::dependencies,
+  $package_provider          = $kong::params::package_provider,
 ) inherits kong::params {
 
   validate_bool($service_enable)
@@ -34,6 +38,7 @@ class kong (
   validate_absolute_path($log_dir)
   validate_integer($memory_cache_size)
   validate_integer($database_cache_expiration)
+  validate_array($plugins_enabled)
 
   class { '::kong::install': } ->
   class { '::kong::config': } ->
