@@ -48,7 +48,10 @@ class kong::params {
   case $::operatingsystem {
     'CentOS': {
       $package_provider = 'rpm'
-      $dependencies = [ 'epel-release' ]
+      $dependencies = [
+        'wget',
+        'epel-release'
+      ]
       case $::operatingsystemmajrelease {
         '5': { $download_file = 'el5.noarch.rpm' }
         '6': { $download_file = 'el6.noarch.rpm' }
@@ -61,6 +64,7 @@ class kong::params {
     'Ubuntu': {
       $package_provider = 'dpkg'
       $dependencies = [
+        'wget',
         'netcat',
         'lua5.1',
         'openssl',
@@ -79,6 +83,7 @@ class kong::params {
     'Debian': {
       $package_provider = 'dpkg'
       $dependencies = [
+        'wget',
         'netcat',
         'lua5.1',
         'openssl',

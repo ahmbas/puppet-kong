@@ -1,18 +1,17 @@
 # Install kong
 class kong::install inherits kong {
 
-  ensure_packages('wget')
-  ensure_packages($dependencies)
+  ensure_packages($kong::dependencies)
 
   # Download kong package unless it appears to be installed
   exec { 'download-kong':
-    path        => [ '/bin', '/usr/bin' ],
-    command     => "wget ${kong::download_url}/${kong::download_file} -O /tmp/${kong::download_file}",
-    creates     => "/tmp/$kong::download_file",
-    unless      => "test -d /usr/local/kong",
-    require     => Package['wget'],
-    before      => Package['kong'],
-    notify      => Package['kong'],
+    path    => [ '/bin', '/usr/bin' ],
+    command => "wget ${kong::download_url}/${kong::download_file} -O /tmp/${kong::download_file}",
+    creates => "/tmp/${kong::download_file}",
+    unless  => 'test -d /usr/local/kong',
+    require => Package['wget'],
+    before  => Package['kong'],
+    notify  => Package['kong'],
   }
 
   # Install kong package
