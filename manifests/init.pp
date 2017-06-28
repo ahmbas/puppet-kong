@@ -23,7 +23,6 @@ class kong (
   $plugins_enabled           = $kong::params::plugins_enabled,
   $package_provider          = $kong::params::package_provider,
   $dependencies              = $kong::params::dependencies,
-  $package_provider          = $kong::params::package_provider,
 ) inherits kong::params {
 
   validate_bool($service_enable)
