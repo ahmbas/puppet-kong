@@ -61,6 +61,21 @@ class kong::params {
         }
       }
     }
+   'Amazon': {
+      $package_provider = 'rpm'
+      $dependencies = [
+        'wget',
+        'epel-release'
+      ]
+      case $::operatingsystemmajrelease {
+        '5': { $download_file = 'el5.noarch.rpm' }
+        '6': { $download_file = 'el6.noarch.rpm' }
+        '7': { $download_file = 'el7.noarch.rpm' }
+        default: {
+          fail("Class['kong::params']: Unsupported operatingsystemmajrelease ${::operatingsystemmajrelease}")
+        }
+      }
+    }
     'Ubuntu': {
       $package_provider = 'dpkg'
       $dependencies = [
